@@ -9,9 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'header-image': "url('/images/header/travel_header.jpg')",
+      },
+      colors: {
+        'primary': '#0077B6',    // Biru laut
+        'secondary': '#00B4D8',  // Biru muda
+        'accent': '#90E0EF',     // Biru pastel
+        'background': '#F0F4F8', // Latar belakang yang cerah
+        'highlight': '#FFB703',  // Kuning cerah
+        'text-primary': '#333',  // Warna teks utama
+        'text-secondary': '#555',// Warna teks sekunder
+        'border': '#E1E1E1',     // Warna border atau garis
       },
     },
   },
