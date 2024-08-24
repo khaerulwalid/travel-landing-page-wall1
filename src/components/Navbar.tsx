@@ -4,7 +4,7 @@ import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleClick = () => {
     setIsMenuOpen((prev) => !prev);
@@ -17,9 +17,16 @@ const Navbar = () => {
         <div className="relative w-4/5 mx-auto py-5">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className=" text-2xl font-bold text-primary">Logo</h1>
+              <h1 className="text-2xl font-bold text-primary">Logo</h1>
             </div>
-            <ul className="gap-4 text-white hidden lg:flex">
+            {/* Menu Container */}
+            <ul
+              className={`gap-4 text-white transition-transform duration-300 ease-out ${
+                isMenuOpen
+                  ? "flex flex-col items-center absolute inset-0 top-[140%] lg:static lg:flex lg:flex-row"
+                  : "hidden flex-col items-center absolute inset-0 top-[140%] lg:static lg:flex lg:flex-row"
+              }`}
+            >
               <li>
                 <a className={styleLinkNavbar}>Home</a>
               </li>
@@ -42,7 +49,7 @@ const Navbar = () => {
               onClick={handleClick}
               className="lg:hidden inline text-white cursor-pointer"
             >
-              {isMenuOpen ? (
+              {!isMenuOpen ? (
                 <FontAwesomeIcon icon={faBars} />
               ) : (
                 <FontAwesomeIcon icon={faXmark} />
